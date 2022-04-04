@@ -25,6 +25,6 @@ node app
 
 
 #### Link to github repository
-[url to github repository]
+https://github.com/umidaZ/Rotation-navigation
 
 host link - https://umidaapp.herokuapp.com/
