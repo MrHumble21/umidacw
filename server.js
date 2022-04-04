@@ -2,16 +2,16 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const mongoose = require("mongoose");
-const port = 3333;
-const dotenv =  require("dotenv")
+
+const dotenv = require("dotenv");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
-
+require("dotenv").config();
 const MONGODB_URI = `mongodb+srv://Abdulboriy:zerotomastery@cluster0.mpywc.mongodb.net/memoDb`;
 mongoose.connect(MONGODB_URI || "mongodb://localhost:27017/memoDb");
-require("dotenv").config();
 
+const PORT = process.env.PORT || 5000;
 
 const memoDbSchema = {
   date: String,
@@ -98,6 +98,6 @@ app.post("/edit/:id", (req, res) => {
   );
 });
 
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log("listening on port 3333");
 });
